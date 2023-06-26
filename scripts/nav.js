@@ -33,12 +33,30 @@ const navMenu = [
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+
+    // creating bootstrap CSS Link
+    const bootstrapCSSLink = document.createElement("link");
+    bootstrapCSSLink.rel = "stylesheet";
+    bootstrapCSSLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css";
+    bootstrapCSSLink.integrity = "sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM";
+    bootstrapCSSLink.crossOrigin = "anonymous";
+
+    document.head.appendChild(bootstrapCSSLink);
+
+    // creating bootstrap javascript source
+    const bootstrapJS = document.createElement("script");
+    bootstrapJS.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
+    bootstrapJS.integrity = "sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz";
+    bootstrapJS.crossOrigin = "anonymous";
+
+    document.body.appendChild(bootstrapJS);
+
+
     //Creating a navbar
     const nav = document.createElement("nav")
     nav.classList.add("navbar")
     function navLink(item) {
-        
+
         const navSublist = document.createElement('li');// create nav items in list format
         navSublist.classList.add(item.class)// assigning class as nav-item for nav links
 
