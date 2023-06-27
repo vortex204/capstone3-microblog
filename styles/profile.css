@@ -1,67 +1,131 @@
-/* Landing Page CSS */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    padding: 20px;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+.profile-container {
+  display: flex;
+  justify-content: center;
+}
 
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
+.card {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
 
-  .username {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+.card-body {
+  padding: 20px;
+}
 
-  .handle {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 20px;
-  }
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
 
+.username {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-fieldset {
-    border: none;
-    padding: 0;
-    margin: 0;
-  }
+.handle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
 
-  legend {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+.bio {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+.stats {
+  margin-bottom: 20px;
+}
 
-  input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
+.stat {
+  display: inline-block;
+  margin-right: 20px;
+}
 
-  button {
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.count {
+  font-size: 18px;
+  font-weight: bold;
+}
+.label {
+  font-size: 14px;
+  color: #777;
+}
 
-  button:hover {
-    background-color: #45a049;
-  }
+.latest-posts {
+  margin-top: 30px;
+}
+
+.latest-posts h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.latest-posts ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.latest-posts li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+} */
+
+legend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
