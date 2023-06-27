@@ -4,11 +4,7 @@ const navMenu = [
         link: "index.html",
         class: "nav-item"
     },
-    {
-        name: "Login",
-        link: "login.html",
-        class: "nav-item"
-    },
+  
 
     {
         name: "Register",
@@ -17,7 +13,7 @@ const navMenu = [
     },
     {
         name: "Posts",
-        link: "posts.html",
+        link: "post/index.html",
         class: "nav-item"
     },
     {
