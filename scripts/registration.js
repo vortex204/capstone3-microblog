@@ -5,21 +5,17 @@
 
       // Get form input values
       const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
       const password = document.getElementById("psw").value;
-      const confirmPassword = document.getElementById("psw-repeat").value;
-
-      // Validate form inputs
-      if (password !== confirmPassword) {
-        alert("Passwords do not match");
-        return;
-      }
+      
       // Clear form inputs
       document.getElementById("email").value = "";
+      document.getElementById("username").value = "";
       document.getElementById("psw").value = "";
-      document.getElementById("psw-repeat").value = "";
 
       let user = {
         email: email,
+        username: username,
         password: password
       };
 
