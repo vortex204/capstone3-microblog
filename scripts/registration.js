@@ -7,6 +7,12 @@
       const email = document.getElementById("email").value;
       const username = document.getElementById("username").value;
       const password = document.getElementById("psw").value;
+
+    //   validate email format
+    if (!validateEmail(email)){
+        alert("Inavild email format");
+        return;
+    }
       
       // Clear form inputs
       document.getElementById("email").value = "";
@@ -23,3 +29,8 @@
       localStorage.setItem(email, json);
       console.log("user added");
     }
+
+    function validateEmail(email) {
+        const emailRegex = /\S+@\S+\.\S+/;
+        return emailRegex.test(email);
+      }
