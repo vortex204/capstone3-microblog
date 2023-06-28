@@ -13,9 +13,17 @@
         alert("Passwords do not match");
         return;
       }
-
       // Clear form inputs
       document.getElementById("email").value = "";
       document.getElementById("psw").value = "";
       document.getElementById("psw-repeat").value = "";
+
+      let user = {
+        email: email,
+        password: password
+      };
+
+      let json = JSON.stringify(user);
+      localStorage.setItem(email, json);
+      console.log("user added");
     }
