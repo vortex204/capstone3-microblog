@@ -24,3 +24,29 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+nav {
+  background-color: #333741;
+  display:flex;
+  
+
+
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  font-size: large;
+  padding: 1rem;
+}
+
+nav a:hover {
+  color: black;
+  background-color: white;
+}
+
+.active {
+  color: black;
+  background-color: white;
+}

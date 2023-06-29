@@ -20,6 +20,7 @@
 
   <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
   <script src="scripts/auth.js"></script>
+  <script src="scripts/login.js"></script>
   <script>
     if (isLoggedIn() === true) window.location.replace("/posts");
   </script>
@@ -46,16 +47,6 @@
 </body>
 
 </html>
-<script>
-document.getElementById("loginButton").addEventListener("click", function (event) {
-    event.preventDefault();
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const loginData = {
-      username: username,
-      password: password
-    };
-    login(loginData);
-  });</script>
+
 
 </html>
