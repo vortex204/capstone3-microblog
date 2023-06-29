@@ -1,3 +1,65 @@
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const postUrl = "/api/posts";
+
+  async function getPosts() {
+    try {
+      const loginData = getLoginData();
+      const options = {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${loginData.token}`,
+        },
+      };
+
+      const response = await fetch(apiBaseURL + postUrl, options);
+      const jsonData = await response.json();
+      console.log(jsonData);
+      // document.getElementById("cardContainer").innerHTML += jsonData[0].username;
+
+
+      const cardContainer = document.getElementById('cardContainer')
+
+      for (i = 0; i < jsonData.length; i++) {
+        const data = jsonData[i]
+        
+          const card = document.createElement('div');
+          card.className = 'card';
+          const cardTitle = document.createElement('h2');
+          cardTitle.className = 'card-title';
+          cardTitle.textContent = data.text;
+          const cardContent = document.createElement('p');
+          cardContent.className = 'card-content';
+          cardContent.textContent = data.username;
+
+          // Create card button
+          const cardButton = document.createElement('button');
+          cardButton.className = 'card-button';
+          cardButton.textContent = data.likes;
+          cardButton.addEventListener('click', () => {
+            alert('Button clicked!');
+          });
+
+          // Append elements to the card
+          card.appendChild(cardTitle);
+          card.appendChild(cardContent);
+          card.appendChild(cardButton);
+          // Append the card to the container
+         cardContainer.appendChild(card);
+
+
+
+
+        
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching posts:", error);
+    }
+  }
+
+  getPosts();
+});
+
 // $(document).ready(function() {
 
 //     // $.ajax({
@@ -136,43 +198,6 @@
 //   this.classList.toggle('red');
 
 // });
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const postUrl = "/api/posts";
-
-  async function getPosts() {
-    try {
-      const loginData = getLoginData();
-      const options = {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${loginData.token}`,
-        },
-      };
-
-      const response = await fetch(apiBaseURL + postUrl, options);
-      const jsonData = await response.json();
-      console.log(jsonData);
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    } catch (error) {
-      console.error("An error occurred while fetching posts:", error);
-    }
-  }
-
-  getPosts();
-});
 
 
 

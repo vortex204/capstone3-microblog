@@ -1,24 +1,24 @@
 const navMenu = [
     {
         name: "Home",
-        link: "index.html",
+        link: "/index.html",
         class: "nav-item"
     },
   
 
     {
         name: "Register",
-        link: "registration.html",
+        link: "/registration.html",
         class: "nav-item"
     },
     {
         name: "Posts",
-        link: "index.html",
+        link: "/post/index.html",
         class: "nav-item"
     },
     {
         name: "Profile",
-        link: "profile.html",
+        link: "/profile.html",
         class: "nav-item"
     }
 
