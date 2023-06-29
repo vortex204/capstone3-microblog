@@ -58,7 +58,13 @@ function handleFormSubmit(event) {
             console.log("catch error:");
             console.log(error);
             alert(error.message);
+            redirectToSignIn(); // Redirect to sign-in form
         });
+}
+
+// Redirect user to sign-in form
+function redirectToSignIn() {
+    window.location.replace("index.html");
 }
 
 function validateEmail(email) {
