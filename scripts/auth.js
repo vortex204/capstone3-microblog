@@ -26,6 +26,7 @@ function isLoggedIn() {
 // you may need to write.
 function login(loginData) {
   // POST /auth/login
+
   const options = {
     method: "POST",
     headers: {
@@ -46,6 +47,8 @@ function login(loginData) {
       return loginData;
     });
 }
+const loginBtn = document.getElementsByClassName("loginBtn")
+loginBtn.addEventListener("click", login)
 
 // This is the `logout()` function you will use for any logout button
 // which you may include in various pages in your app. Again, READ this
