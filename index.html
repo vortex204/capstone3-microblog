@@ -1,38 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" href="styles/landing.css">
-<title> Welcome  </title>
-<script src="scripts/nav.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap -->
+  
+  <script src="scripts/nav.js"></script>
+
+  <!-- Global CSS (CSS rules you want applied to all pages) -->
+  <link rel="stylesheet" href="styles/global.css" />
+
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="styles/landing.css" />
+
+  <title>Login to the Microblog Network!</title>
+
+  <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
+  <script src="scripts/auth.js"></script>
+  <script>
+    if (isLoggedIn() === true) window.location.replace("/posts");
+  </script>
 </head>
-  <body>
-    <div class="main-content"></div>
-    <div class="login-page">
-      <div class="form">
-        <div class="login">
-          <div class="login-header">
-            <h3>LOGIN</h3>
-            <p>Please enter your information to login.</p>
-          </div>
+
+<body>
+  <div class="main-content"></div>
+  <div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3>LOGIN</h3>
+          <p>Please enter your information to login.</p>
         </div>
-        <form class="login-form">
-          <input type="text" placeholder="username"/>
-          <input type="password" placeholder="password"/>
-          <button>login</button>
-          <p class="message">Not registered? <a href="registration.html">Create an account</a></p>
-        </form>
       </div>
+      <form class="login-form">
+        <input id="username" type="text" placeholder="username"/>
+        <input id="password" type="password" placeholder="password"/>
+        <button id="loginButton">login</button>
+        <p class="message">Not registered? <a href="registration.html">Create an account</a></p>
+      </form>
     </div>
+  </div>
 </body>
-</body>
+
 </html>
+<script>
+document.getElementById("loginButton").addEventListener("click", function (event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const loginData = {
+      username: username,
+      password: password
+    };
+    login(loginData);
+  });</script>
 
-
-
-
-
-
-
-
-
-
+</html>

@@ -24,7 +24,7 @@ function isLoggedIn() {
 // landing page, in order to process a user's login. READ this code,
 // and feel free to re-use parts of it for other `fetch()` requests
 // you may need to write.
-function login(loginData) {
+async function login(loginData) {
   // POST /auth/login
 
   const options = {
@@ -47,8 +47,8 @@ function login(loginData) {
       return loginData;
     });
 }
-const loginBtn = document.getElementsByClassName("loginBtn")
-loginBtn.addEventListener("click", login)
+// const loginBtn = document.getElementsByClassName("loginBtn")
+// loginBtn.addEventListener("click", login)
 
 // This is the `logout()` function you will use for any logout button
 // which you may include in various pages in your app. Again, READ this
