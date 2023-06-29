@@ -1,4 +1,4 @@
-
+document.addEventListener("DOMContentLoaded", ()=> {
 document.getElementById("loginButton").addEventListener("click", function (event) {
     event.preventDefault();
     const username = document.getElementById("username").value;
@@ -9,3 +9,4 @@ document.getElementById("loginButton").addEventListener("click", function (event
     };
     login(loginData);
     });
+})
