@@ -2,7 +2,7 @@
 
 "use strict";
 
-const apiBaseURL = "https://microbloglite.onrender.com/";
+const apiBaseURL = "https://microbloglite.onrender.com"
 // Backup server:   https://microbloglite.onrender.com
 
 // You can use this function to get the login data of the logged-in
@@ -24,7 +24,7 @@ function isLoggedIn() {
 // landing page, in order to process a user's login. READ this code,
 // and feel free to re-use parts of it for other `fetch()` requests
 // you may need to write.
-function login(loginData) {
+async function login(loginData) {
   // POST /auth/login
 
   const options = {
@@ -42,13 +42,13 @@ function login(loginData) {
     .then((response) => response.json())
     .then((loginData) => {
       window.localStorage.setItem("login-data", JSON.stringify(loginData));
-      window.location.assign("/posts"); // redirect
+      window.location.assign("/post"); // redirect
 
       return loginData;
     });
 }
-const loginBtn = document.getElementsByClassName("loginBtn")
-loginBtn.addEventListener("click", login)
+// const loginBtn = document.getElementsByClassName("loginBtn")
+// loginBtn.addEventListener("click", login)
 
 // This is the `logout()` function you will use for any logout button
 // which you may include in various pages in your app. Again, READ this
@@ -78,6 +78,6 @@ function logout() {
       // error with the fetch request above.
 
       window.localStorage.removeItem("login-data"); // remove login data from LocalStorage
-      window.location.assign("/"); // redirect back to landing page
+      window.location.assign("index.html"); // redirect back to landing page
     });
 }

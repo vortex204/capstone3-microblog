@@ -13,7 +13,7 @@ const navMenu = [
     },
     {
         name: "Posts",
-        link: "post/index.html",
+        link: "index.html",
         class: "nav-item"
     },
     {
