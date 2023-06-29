@@ -40,6 +40,7 @@ function handleFormSubmit(event) {
             console.log(response);
             if (response.ok) {
                 // Server registration successful
+
                 return response.json();
             } else {
                 throw new Error("Server registration failed");
