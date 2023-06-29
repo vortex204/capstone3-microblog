@@ -1,57 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Bootstrap -->
-  
-  <script src="/scripts/nav.js"></script>
-
-  <!-- Global CSS (CSS rules you want applied to all pages) -->
-  <link rel="stylesheet" href="./global.css" />
-
-  <!-- Page-specific CSS -->
-  <link rel="stylesheet" href="./landing.css" />
-
-  <title>Login to the Microblog Network!</title>
-
-  <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
-  <script src="./auth.js"></script>
-  <script>
-    if (isLoggedIn() === true) window.location.replace("/posts");
-  </script>
+<link rel="stylesheet" href="styles/landing.css">
+<title> Welcome  </title>
+<script src="scripts/nav.js"></script>
 </head>
-
-<body>
-  <div class="main-content">
-    <header>
-      <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
-    </header>
-
-    <main>
-      <form id="login">
-        <div>
-          <label for="username">Username</label>
-          <input type="text" id="username" minlength="3" />
+  <body>
+    <div class="main-content"></div>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>LOGIN</h3>
+            <p>Please enter your information to login.</p>
+          </div>
         </div>
-
-        <div>
-          <label for="password">Password</label>
-          <input type="password" id="password" minlength="6" />
-        </div>
-
-        <button id="loginButton" type="submit">Login</button>
-      </form>
-    </main>
-
-    <footer></footer>
-
-    <!-- Page-specific code -->
-    <script src="./landing.js"></script>
-  </div>
+        <form class="login-form">
+          <input type="text" placeholder="username"/>
+          <input type="password" placeholder="password"/>
+          <button>login</button>
+          <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+      </div>
+    </div>
 </body>
-
+</body>
 </html>
