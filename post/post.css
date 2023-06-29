@@ -6,3 +6,26 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+/* like and dislike button */
+  body{
+    margin: 40px;
+  }
+  
+  button{
+    cursor: pointer;
+    outline: 0;
+    color: #AAA;
+  
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .green{
+    color: green;
+  }
+  
+  .red{
+    color: red;
+  }
