@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         cardDislikeButton.className = 'card-button';
         cardDislikeButton.innerHTML = '<i class="fas fa-thumbs-down"></i>';
         cardDislikeButton.addEventListener('click', () => {
-          removeLike(data._id); // Remove Like
+          removeLike(data.likes[0]._id); // Remove Like
         });
 
       const likeCount = document.createElement('div');
@@ -114,7 +114,7 @@ cardContainer.appendChild(card);
       const response = await fetch(apiBaseURL + "/api/likes", options);
       const jsonData = await response.json();
       console.log(jsonData);
-
+      getPosts();
       // Handle the response and update UI if necessary
     } catch (error) {
       console.error("An error occurred while adding a like:", error);
@@ -134,7 +134,7 @@ cardContainer.appendChild(card);
       const response = await fetch(apiBaseURL + `/api/likes/${likeId}`, options);
       const jsonData = await response.json();
       console.log(jsonData);
-
+      getPosts();
       // Handle the response and update UI if necessary
     } catch (error) {
       console.error("An error occurred while removing a like:", error);
