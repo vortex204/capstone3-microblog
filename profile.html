@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="/scripts/nav.js"></script>
+  <!-- Bootstrap -->
 
-    <!-- Global CSS (CSS rules you want applied to all pages) -->
-    <link rel="stylesheet" href="styles/global.css" />
+  <script src="/scripts/nav.js"></script>
 
-    <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="styles/profile.css" />
+  <!-- Global CSS (CSS rules you want applied to all pages) -->
+  <link rel="stylesheet" href="styles/global.css" />
 
-    <title>Login to the Microblog Network!</title>
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="styles/profile.css" />
 
-    <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
-    <script src="./auth.js"></script>
-    <script>
-      if (isLoggedIn() === true) window.location.replace("profile.html");
+  <title>Login to the Microblog Network!</title>
 
-    </script>
-  </head>
-  <body>
-    <div class="main-content"></div>
-    <div class="main-content d-flex justify-content-end">
-      <button class="btn btn-primary" onclick="logout()">Logout</button>
-    </div>
+  <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
+  <script src="./auth.js"></script>
+  <script>
+    if (isLoggedIn() === true) window.location.replace("profile.html");
+
+  </script>
+</head>
+
+<body>
+  <div class="main-content">
+    <button type="button" class="btn " style="background-color: lightblue;" onclick="logout()">Logout</button>
 
     <div class="profile-container">
       <div class="card">
-        <img
-          src="images/profile-picture.jpg"
-          alt="Profile Picture"
-          class="profile-picture"
-        />
+        <img src="images/profile-picture.jpg" alt="Profile Picture" class="profile-picture" />
         <div class="card-body">
           <div class="username">Oliver Johnson</div>
           <div class="handle">@OliverJ88</div>
@@ -59,12 +55,7 @@
           <fieldset>
             <legend>Create Post</legend>
             <label for="text">Text for Post:</label>
-            <input
-              id="text"
-              type="text"
-              placeholder="Type text for post here"
-              required
-            />
+            <input id="text" type="text" placeholder="Type text for post here" required />
             <br />
             <button id="create">Create</button>
           </fieldset>
@@ -74,12 +65,14 @@
     <div class="latest-posts">
       <h2>Latest Posts</h2>
       <ul>
-        <a href="post/index.html"
-          ><li>Post 1</li>
+        <a href="post/index.html">
+          <li>Post 1</li>
           <li>Post 2</li>
-          <li>Post 3</li></a
-        >
+          <li>Post 3</li>
+        </a>
       </ul>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

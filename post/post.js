@@ -15,42 +15,50 @@ document.addEventListener("DOMContentLoaded", async () => {
       const response = await fetch(apiBaseURL + postUrl, options);
       const jsonData = await response.json();
       console.log(jsonData);
-      // document.getElementById("cardContainer").innerHTML += jsonData[0].username;
 
+      const cardContainer = document.getElementById('cardContainer');
 
-      const cardContainer = document.getElementById('cardContainer')
+      for (let i = 0; i < jsonData.length; i++) {
+        const data = jsonData[i];
 
-      for (i = 0; i < jsonData.length; i++) {
-        const data = jsonData[i]
+        const card = document.createElement('div');
+        card.className = 'card';
         
-          const card = document.createElement('div');
-          card.className = 'card';
-          const cardTitle = document.createElement('h2');
-          cardTitle.className = 'card-title';
-          cardTitle.textContent = data.text;
-          const cardContent = document.createElement('p');
-          cardContent.className = 'card-content';
-          cardContent.textContent = data.username;
-
-          // Create card button
-          const cardButton = document.createElement('button');
-          cardButton.className = 'card-button';
-          cardButton.textContent = data.likes;
-          cardButton.addEventListener('click', () => {
-            alert('Button clicked!');
-          });
-
-          // Append elements to the card
-          card.appendChild(cardTitle);
-          card.appendChild(cardContent);
-          card.appendChild(cardButton);
-          // Append the card to the container
-         cardContainer.appendChild(card);
-
-
-
-
+        const cardTitle = document.createElement('h2');
+        cardTitle.className = 'card-title';
+        cardTitle.innerHTML = data._id;
+        cardTitle.innerHTML += `<br><hr>${data.text}`;
         
+        const cardContent = document.createElement('p');
+        cardContent.className = 'card-content';
+        cardContent.textContent = data.username;
+
+        const cardButton = document.createElement('button');
+        cardButton.className = 'card-button';
+        cardButton.innerHTML = '<i class="fas fa-heart"></i>';
+        cardButton.addEventListener('click', () => {
+          addLike(data._id); // Add Like
+        });
+
+        const cardDislikeButton = document.createElement('button');
+        cardDislikeButton.className = 'card-button';
+        cardDislikeButton.innerHTML = '<i class="fas fa-thumbs-down"></i>';
+        cardDislikeButton.addEventListener('click', () => {
+          removeLike(data._id); // Remove Like
+        });
+
+      const likeCount = document.createElement('div');
+likeCount.className = 'like-count';
+likeCount.textContent = `Likes: ${data.likes.length}`; // Use data.likes.length to get the number of likes
+
+card.appendChild(cardTitle);
+card.appendChild(cardContent);
+card.appendChild(cardButton);
+card.appendChild(cardDislikeButton);
+card.appendChild(likeCount);
+
+cardContainer.appendChild(card);
+
       }
     } catch (error) {
       console.error("An error occurred while fetching posts:", error);
@@ -58,7 +66,82 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   getPosts();
+
+  async function createPost(event) {
+    event.preventDefault();
+
+    const postCreate = document.getElementById("postText").value;
+    try {
+      const loginData = getLoginData();
+      const options = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${loginData.token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          text: postCreate,
+        }),
+      };
+  
+      const response = await fetch(apiBaseURL + postUrl, options);
+      const jsonData = await response.json();
+      console.log(jsonData);
+  
+      // Handle the response and update UI if necessary
+  
+    } catch (error) {
+      console.error("An error occurred while creating a post:", error);
+    }
+  }
+  
+  document.getElementById("createButton").addEventListener("click", createPost);
+
+  async function addLike(postId) {
+    try {
+      const loginData = getLoginData(); // Make sure you have the getLoginData function implemented
+      const options = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${loginData.token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          postId: postId,
+        }),
+      };
+
+      const response = await fetch(apiBaseURL + "/api/likes", options);
+      const jsonData = await response.json();
+      console.log(jsonData);
+
+      // Handle the response and update UI if necessary
+    } catch (error) {
+      console.error("An error occurred while adding a like:", error);
+    }
+  }
+
+  async function removeLike(likeId) {
+    try {
+      const loginData = getLoginData(); // Make sure you have the getLoginData function implemented
+      const options = {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${loginData.token}`,
+        },
+      };
+
+      const response = await fetch(apiBaseURL + `/api/likes/${likeId}`, options);
+      const jsonData = await response.json();
+      console.log(jsonData);
+
+      // Handle the response and update UI if necessary
+    } catch (error) {
+      console.error("An error occurred while removing a like:", error);
+    }
+  }
 });
+
 
 
 
@@ -178,7 +261,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 //       $("#postsContainer").append(postElement,likesContainer);
 //     }
 //   });
-//   // Like and dislike button 
+//   // Like and dislike button
 
 //   var btn1 = document.querySelector('#green');
 // var btn2 = document.querySelector('#red');
@@ -187,7 +270,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 //     if (btn2.classList.contains('red')) {
 //       btn2.classList.remove('red');
-//     } 
+//     }
 //   this.classList.toggle('green');
 
 // });
@@ -196,7 +279,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 //     if (btn1.classList.contains('green')) {
 //       btn1.classList.remove('green');
-//     } 
+//     }
 //   this.classList.toggle('red');
 
 // });
