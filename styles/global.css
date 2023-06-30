@@ -35,7 +35,7 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: white !important;
   text-decoration: none;
   display: flex;
   font-size: large;
@@ -84,3 +84,20 @@ footer li{
 ul.navbar-nav{
   flex-direction: row;
 }
+.heavy{
+  font-weight: bold;
+}
+.light{
+  font-weight: normal;
+}
+
+a.teamMember{
+  color:white!important;
+ 
+  font-size: larger;
+
+}
+/* footer {
+  background: rgb(86,195,34);
+  background: linear-gradient(0deg, rgba(86,195,34,1) 20%, rgba(118,195,34,1) 28%, rgba(199,253,45,1) 100%);
+} */

@@ -48,7 +48,7 @@
 
   /* Add a blue text color to links */
 a {
-    color: dodgerblue;
+    color: #4CAF50 !important;
   }
 
   /* Set a grey background color and center the text of the "sign in" section */
@@ -56,3 +56,39 @@ a {
     background-color: #f1f1f1;
     text-align: center;
   }
+  form.signup_form{
+    padding-top: 2rem;
+    max-width:50%;
+    position: relative;
+    z-index: 1;
+    margin: 5rem auto 100px;
+    padding: 5px;
+  
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+
+ /* element.style {
+  }
+  .form {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      max-width: 360px;
+      margin: 0 auto 100px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  *, ::after, ::before {
+      box-sizing: border-box;
+  }
+  * {
+      box-sizing: border-box;
+      /* outline: 1px dotted red; */
+  /* }
+  
+  user agent stylesheet
+  div {
+      display: block;
+  } */

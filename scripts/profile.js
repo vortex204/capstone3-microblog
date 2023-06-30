@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         fullName.innerHTML = data.fullName;
         handle.innerHTML = data.username;
         bio.innerHTML = data.bio;
-        created.innerHTML = data.createdAt;
-        updated.innerHTML = data.updatedAt;
+        created.innerHTML += data.createdAt;
+        updated.innerHTML += data.updatedAt;
 
 
 
