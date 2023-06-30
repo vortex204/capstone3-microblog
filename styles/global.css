@@ -47,3 +47,18 @@ nav a:hover {
   background-color: white;
 }
 
+.card{
+vertical-align: top;
+min-height: 30rem;
+margin: 1rem;
+display: inline-block
+}
+
+
+#cardContainer {
+margin: 2rem;
+padding: 2rem;
+/* display: flex; */
+width: 100vw;
+vertical-align: top;
+}

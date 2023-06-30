@@ -9,7 +9,7 @@ document.getElementById("loginButton").addEventListener("click", function (event
     };
     console.log(loginData)
 
-    localStorage.setItem("loginData", JSON.stringify(loginData));// save in local storage
+    
 
 
     login(loginData);
