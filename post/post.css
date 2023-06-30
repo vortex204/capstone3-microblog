@@ -34,9 +34,10 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #33374188 !important;
+    background-color:white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: inline-block !important;
+    justify-content: space-evenly;
   }
   
   .card-title {
@@ -63,5 +64,20 @@ body {
     margin: 0rem;
     padding: 0rem;
     /* display:flex; */
+   
     
   }
+  #text{
+    min-width: 100%;
+  }
+.btn-success{
+  margin:2rem;
+}
+.btn{
+  margin:2rem;
+}
+#postText{
+  min-width:80vw;
+  margin-left:3rem;
+  border-radius: 1rem;
+}

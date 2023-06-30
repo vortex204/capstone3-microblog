@@ -91,20 +91,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    const footer = document.createElement("footer")
-    footer.id = "footer"
-    const year = document.createElement('span')
-    year.id = 'year'
-
+    const footer = document.createElement("footer");
+    footer.id = "footer";
+    
+    const year = document.createElement("span");
+    year.id = "year";
     footer.appendChild(year);
-
-    const copyright = document.createTextNode(' \u00A9 Presented by Team Jefferey. All right reserved.')
-    footer.appendChild(copyright);
-
+    
+    const teamMembers = [
+      { name: "Anita Grant Anderson", link: "https://github.com/agrant1876" },
+      { name: "Claudia Gonzalez", link: "https://github.com/claudiagonzalez0305" },
+      { name: "Jeffrey Espinal", link: "https://github.com/vortex204" },
+      { name: "Mohamed Al Chorbaji", link: "https://github.com/mohamedalchorbaji" },
+      { name: "Paulette Yigo", link: "https://github.com/pyigo" },
+      { name: "Yonesh Thapa", link: "https://github.com/ayuwayang" },
+    ];
+    
+    const teamList = document.createElement("ul");
+    teamMembers.forEach((member) => {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = member.link;
+      link.textContent = member.name;
+      listItem.appendChild(link);
+      teamList.appendChild(listItem);
+    });
+    
+    const copyright = document.createTextNode(`\u00A9 Presented by Team Jefferey. All rights reserved.`);
+    footer.appendChild(copyright)
+    footer.appendChild(document.createElement("br"));
+    footer.appendChild(document.createTextNode("Team Members:"));
+    footer.appendChild(document.createElement("br"));
+    footer.appendChild(teamList);
+    footer.appendChild(document.createElement("br"));
+    footer.appendChild(document.createTextNode("All rights reserved."));
+    
     document.body.appendChild(footer);
+    
     const currentYear = new Date().getFullYear();
-
-    document.getElementById('year').textContent = currentYear
+    document.getElementById("year").textContent = currentYear;
+    
 
 
 })

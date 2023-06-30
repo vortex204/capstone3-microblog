@@ -1,51 +1,70 @@
 <!-- POSTS page -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap CSS -->
-  
-    <script src="../scripts/nav.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Global CSS (CSS rules you want applied to all pages) -->
-    <link rel="stylesheet" href="../styles/global.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <!-- Page-specific CSS -->
-    <link rel="stylesheet" href="post.css" />
-    
 
-    <title>/POSTS</title>
+  <script src="../scripts/nav.js"></script>
 
-    <!-- Run BEFORE page is finished loading (before window.onload): -->
-    <script src="../scripts/auth.js"></script>
-    <script>
-      if (isLoggedIn() === false) window.location.replace("/");
-    </script>
-  </head>
-  <body>
-    <div class="main-content col-md-6">
+  <!-- Global CSS (CSS rules you want applied to all pages) -->
+  <link rel="stylesheet" href="../styles/global.css" />
+
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="post.css" />
+
+
+  <title>/POSTS</title>
+
+  <!-- Run BEFORE page is finished loading (before window.onload): -->
+  <script src="../scripts/auth.js"></script>
+  <script>
+    if (isLoggedIn() === false) window.location.replace("/");
+  </script>
+</head>
+
+<body>
+  <div class="main-content col-md-6">
+    <button type="button" class="btn" style="background-color: lightblue;" onclick="logout()">Logout</button>
+
     <header>
-      <h1>POSTS PAGE</h1>
+      <h1 style="margin-left: 2rem">POSTS PAGE</h1>
+
     </header>
-    <button id="button" onclick="logout()">Logout</button>
-    <main>
-      <div id="cardContainer"></div>
-    </main>
 
-    <!--like/ dislike button-->
-    
-    <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+    <div class="container">
+      <form id="createPostForm">
+        <label for="postText" style="margin-left: 2rem">Post Text:</label>
+        <textarea id="postText" name="postText" rows="4" cols="50"></textarea><br>
+        <button type="button" class="btn" style="background-color: lightblue;">Create Post</button>
+      </form>
+      <fieldset>
+      
 
-  <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
-  <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
-    <footer></footer>
+      </fieldset>
 
-    <!-- Page-specific code -->
-    <script src="../post/post.js"></script>
-</div>
-  </body>
+      <main>
+        <div id="cardContainer"></div>
+      </main>
+
+      <!--like/ dislike button-->
+
+      <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+
+      <button class="btn"   id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+      <button class="btn"  id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
+      <footer></footer>
+
+      <!-- Page-specific code -->
+      <script src="../post/post.js"></script>
+    </div>
+  </div>
+</body>
 
 </html>
