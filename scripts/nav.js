@@ -113,7 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const teamList = document.createElement("ul");
     teamMembers.forEach((member) => {
       const listItem = document.createElement("li");
+     
       const link = document.createElement("a");
+      link.classList.add("teamMember")
       link.href = member.link;
       link.textContent = member.name;
       listItem.appendChild(link);
