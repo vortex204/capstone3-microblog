@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const likeCount = document.createElement('div');
 likeCount.className = 'like-count';
-likeCount.textContent = `Likes: ${data.likes.length}`; // Use data.likes.length to get the number of likes
+likeCount.innerHTML = `Likes: ${data.likes.length}`; // Use data.likes.length to get the number of likes
 
 card.appendChild(cardTitle);
 card.appendChild(cardContent);

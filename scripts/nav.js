@@ -87,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(nav);
     let mainContent = document.querySelector(".main-content")
     document.body.insertBefore(nav, mainContent)
+  
+
+
 
 
 
