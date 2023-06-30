@@ -19,24 +19,25 @@
   <title>Login to the Microblog Network!</title>
 
   <!-- Run BEFORE page is finished loading (before window.onload - don't add the `defer` attribute): -->
-  <script src="./auth.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/profile.js"></script>
   <script>
-    if (isLoggedIn() === true) window.location.replace("profile.html");
+    if (isLoggedIn() === false) window.location.replace("/");
 
   </script>
 </head>
 
 <body>
   <div class="main-content">
-    <button type="button" class="btn " style="background-color: lightblue;" onclick="logout()">Logout</button>
+    <button type="button" class="btn " style="background-color: lightblue;" onclick="logout()"><a href="index.html">Logout<a></a></button>
 
     <div class="profile-container">
       <div class="card">
         <img src="images/profile-picture.jpg" alt="Profile Picture" class="profile-picture" />
         <div class="card-body">
-          <div class="username">Oliver Johnson</div>
-          <div class="handle">@OliverJ88</div>
-          <div class="bio">Passionate blogger sharing thoughts and ideas.</div>
+          <div class="username"></div>
+          <div class="handle"></div>
+          <div class="bio"></div>
           <div class="social-links">
             <a href="#" target="_blank">Twitter</a>
             <a href="#" target="_blank">LinkedIn</a>
@@ -44,8 +45,8 @@
           </div>
           <div class="stats">
             <div class="stat">
-              <span class="count">3,200</span>
-              <span class="label">Followers</span>
+              <span class="created">Created At</span>
+              <span class="updated">Updated At</span>
             </div>
             <div class="stat">
               <span class="count">500</span>
@@ -55,13 +56,17 @@
           <fieldset>
             <legend>Create Post</legend>
             <label for="text">Text for Post:</label>
-            <input id="text" type="text" placeholder="Type text for post here" required />
+            <input id="postText" type="text" placeholder="Type text for post here" required />
             <br />
             <button id="create">Create</button>
           </fieldset>
+
+
         </div>
       </div>
     </div>
+
+    <div id="cardContainer"></div>
     <div class="latest-posts">
       <h2>Latest Posts</h2>
       <ul>
