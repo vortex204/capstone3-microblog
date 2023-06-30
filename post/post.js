@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   getPosts();
 });
 
+
+
 // $(document).ready(function() {
 
 //     // $.ajax({

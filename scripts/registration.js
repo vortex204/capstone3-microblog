@@ -1,4 +1,63 @@
 
+
+
+
+//  Function to handle form submission
+function handleFormSubmit(event) {
+    event.preventDefault(); // Prevent form submission
+    // Get form input values
+    const username = document.getElementById("username").value;
+    const fullName = document.getElementById("fullName").value;
+    const password = document.getElementById("password").value;
+    // Validate email format
+    if (!validateEmail(username)) {
+      alert("Invalid email format");
+      return;
+    }
+    let user = {
+      username: username,
+      fullName: fullName,
+      password: password,
+    };
+    // Send user data to server
+    fetch("https://microbloglite.onrender.com/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          // User creation successful
+          window.location.assign("index.html")
+          return response.json();
+        } else if (response.status === 400) {
+          // Bad request
+          return response.json().then((data) => {
+            throw new Error(data.message || "Username already exists");
+          });
+        } else {
+          throw new Error("Server registration failed");
+        }
+      })
+      .then((data) => {
+        // Handle successful user creation
+        console.log("User added:", data);
+        // Additional logic here if needed
+      })
+      .catch((error) => {
+        console.log("Catch error:");
+        console.log(error);
+        alert(error.message);
+      });
+  }
+  function validateEmail(email) {
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+  }
+
+
 // // Function to handle form submission
 // function handleFormSubmit(event) {
 //     event.preventDefault(); // Prevent form submission
@@ -71,63 +130,6 @@
 //     const emailRegex = /\S+@\S+\.\S+/;
 //     return emailRegex.test(email);
 // }
-
-
-
-//  Function to handle form submission
-function handleFormSubmit(event) {
-    event.preventDefault(); // Prevent form submission
-    // Get form input values
-    const username = document.getElementById("username").value;
-    const fullName = document.getElementById("fullName").value;
-    const password = document.getElementById("password").value;
-    // Validate email format
-    if (!validateEmail(username)) {
-      alert("Invalid email format");
-      return;
-    }
-    let user = {
-      username: username,
-      fullName: fullName,
-      password: password,
-    };
-    // Send user data to server
-    fetch("https://microbloglite.onrender.com/api/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((response) => {
-        if (response.status === 201) {
-          // User creation successful
-          return response.json();
-        } else if (response.status === 400) {
-          // Bad request
-          return response.json().then((data) => {
-            throw new Error(data.message || "Username already exists");
-          });
-        } else {
-          throw new Error("Server registration failed");
-        }
-      })
-      .then((data) => {
-        // Handle successful user creation
-        console.log("User added:", data);
-        // Additional logic here if needed
-      })
-      .catch((error) => {
-        console.log("Catch error:");
-        console.log(error);
-        alert(error.message);
-      });
-  }
-  function validateEmail(email) {
-    const emailRegex = /\S+@\S+\.\S+/;
-    return emailRegex.test(email);
-  }
-
 
 
 
