@@ -81,3 +81,6 @@ footer li{
   list-style-type: none;
 
 }
+ul.navbar-nav{
+  flex-direction: row;
+}
